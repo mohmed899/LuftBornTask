@@ -1,0 +1,36 @@
+<div mat-dialog-content>
+
+    <form [formGroup]="myForm">
+
+        <div class="p-field p-col-12 p-md-4">
+            <label for="Name">Name</label>
+            <input style="width:100%" type="text" id="Name" pInputText formControlName="name">
+            <span *ngIf="myForm.controls['name'].errors?.['required']" style="color: red;">Required</span>
+        </div>
+
+        <div class="p-field p-col-12 p-md-4">
+            <label for="Email">Email</label>
+            <input style="width:100%" type="text" id="Email" pInputText formControlName="email">
+            <span *ngIf="myForm.controls['email'].errors?.['required']" style="color: red;">Required</span>
+            <span *ngIf="myForm.controls['email'].errors?.['email']" style="color: red;">Invaild Email</span>
+
+        </div>
+
+        <div class="p-field p-col-12 p-md-4">
+            <label for="Address">Address</label>
+            <input style="width:100%" type="text" id="Address" pInputText formControlName="address">
+            <span *ngIf="myForm.controls['address'].errors?.['required']" style="color: red;">Required</span>
+        </div>
+
+        <div class="p-field p-col-12 p-md-4">
+            <label for="Phone">Phone</label>
+            <input style="width:100%" type="text" id="Phone" pInputText formControlName="phone">
+            <span *ngIf="myForm.controls['phone'].errors?.['pattern']" style="color: red;">invaild phone</span>
+        </div>
+
+    </form>
+
+</div>
+<div mat-dialog-actions>
+    <button pButton pRipple label="Save" icon="pi pi-check" (click)="save()"></button>
+</div>
